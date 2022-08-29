@@ -16,6 +16,7 @@ const refs = {
 let userDate = null;
 const date = Date.now();
 
+
 flatpickr(refs.input, {
     enableTime: true,
     time_24hr: true,
@@ -73,6 +74,9 @@ class Timer{
         }
         this.isActive = true;
         this.timerId = setInterval(() => {
+            refs.buttonStart.setAttribute("disabled", true);
+            refs.input.setAttribute("disabled", true);
+
             const currentTime = Date.now();
             const deltaTime = userDate - currentTime;
             const timerEl = convertMs(deltaTime);
