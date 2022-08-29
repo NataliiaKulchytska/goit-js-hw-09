@@ -24,6 +24,7 @@ flatpickr(refs.input, {
     minuteIncrement: 1,
     onClose(selectedDates) {
         console.log(selectedDates[0]);
+          
 
         if (selectedDates[0] < date) {
                refs.buttonStart.setAttribute("disabled", true);
@@ -94,6 +95,9 @@ class Timer{
     }
     timerStop() {
         clearInterval(this.timerId);
+        this.isActive = false;
+        const timeStop = this.convertMs(0);
+        this.timerStart(timeStop);
     }
 }
 
