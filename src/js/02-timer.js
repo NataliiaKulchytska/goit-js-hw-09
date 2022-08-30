@@ -74,9 +74,11 @@ class Timer{
             return;
         }
         this.isActive = true;
+         refs.buttonStart.setAttribute("disabled", true);
+        refs.input.setAttribute("disabled", true);
+        
         this.timerId = setInterval(() => {
-            refs.buttonStart.setAttribute("disabled", true);
-            refs.input.setAttribute("disabled", true);
+           
 
             const currentTime = Date.now();
             const deltaTime = userDate - currentTime;
@@ -88,16 +90,17 @@ class Timer{
             refs.day.textContent = timerEl.days;
 
             if (deltaTime <= 0) {
-                this.stop();
-                timerBlock.innerHTML = 'Ваше время вышло'
+                this.timerStop();
+                Notiflix.Notify.failure('Время вышло');
+                // timerBlock.innerHTML = '';
             }
          }, 1000)
     }
     timerStop() {
         clearInterval(this.timerId);
-        this.isActive = false;
-        const timeStop = this.convertMs(0);
-        this.timerStart(timeStop);
+        this.isActive = false;       
+       
+        
     }
 }
 
