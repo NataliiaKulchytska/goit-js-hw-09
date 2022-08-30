@@ -92,7 +92,8 @@ class Timer{
             if (deltaTime <= 0) {
                 this.timerStop();
                 Notiflix.Notify.failure('Время вышло');
-                // timerBlock.innerHTML = '';
+                const zeroTimer = '<p class ="zeroing">Время вышло</p>';
+                refs.timerBlock.innerHTML = zeroTimer;
             }
          }, 1000)
     }

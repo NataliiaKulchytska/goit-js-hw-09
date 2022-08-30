@@ -17,3 +17,8 @@ font-weight: 600;
 .label{
 display: block;
 }
+.zeroing{
+    font-size: 30px;
+    font-weight: 800;
+    color: #f10e0e;
+}
